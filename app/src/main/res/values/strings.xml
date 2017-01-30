@@ -1,0 +1,60 @@
+<resources>
+    <string name="title_activity_settings">Manage tenants</string>
+    <string name="tab1_label">MISSING</string>
+    <string name="tab2_label">EXPENSES</string>
+    <string name="tab3_label">BALANCE</string>
+    <string name="empty_tobuy_list_textview">
+        Something is missing? Add a product to the to-buy list by clicking the button below.
+    </string>
+    <string name="empty_bought_list_textview">
+        Did you buy something? Add your expense to the list by clicking the button below.
+    </string>
+    <string name="empty_balance_list_textview">You can add a tenant by selecting \"Manage tenants\" in menu.</string>
+    <string name="empty_mates_list_textview">No tenant present.</string>
+    <string name="empty_filter_textview">No expense made by</string>
+    <string name="bought_product_dialog">New expense</string>
+    <string name="tobuy_product_dialog">Missing product</string>
+    <string name="dialog_name_hint">* Name</string>
+    <string name="dialog_description_hint">Description</string>
+    <string name="dialog_quantity_hint">Quantity</string>
+    <string name="dialog_price_hint">* Price</string>
+    <string name="dialog_bywhom_hint">* By:</string>
+    <string name="dialog_forwhom_hint">* For:</string>
+    <string name="add_mate_hint">Add a tenant</string>
+    <string name="dialog_payment_amount_hint">* Amount</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="button_confirm">CONFIRM</string>
+    <string name="button_delete">DELETE</string>
+    <string name="button_ok">OK</string>
+    <string name="button_direct_payment">DIRECT PAYMENT</string>
+    <string name="button_clear_balance">CLEAR BALANCE</string>
+    <string name="everyone">All</string>
+    <string name="buyer">Buyer: %1$s</string>
+    <string name="name">Name: %1$s</string>
+    <string name="price">Price: %1$d x %2$s € = %3$s €</string>
+    <string name="description">Description: %1$s</string>
+    <string name="users">Beneficiaries: %1$s</string>
+    <string name="by_whom_dialog">Bought by:</string>
+    <string name="for_whom_dialog">Bought for:</string>
+    <string name="filter_dialog">Filter by buyer:</string>
+    <string name="warning_dialog">Warning</string>
+    <string name="direct_payment_dialog">Direct payment</string>
+    <string name="no_description">No description</string>
+    <string name="reset_balance_text">Do you want to clear the balance and the expenses list?</string>
+    <string name="delete_mate_text">Do you want to remove the tenant?</string>
+    <string name="dialog_item_detail_title">Expense detail</string>
+    <string name="by_whom">By: %1$s</string>
+    <string name="for_whom">For: %1$s</string>
+    <string name="for_how_many">For: %1$d people</string>
+    <string name="for_one_person">For: 1 person</string>
+    <string name="for_all_people">For: all</string>
+    <string name="payment_to">Payment to %1$s</string>
+    <string name="nonnull_mates_balance_toast">The tenant\'s balance must be zero</string>
+    <string name="mandatory_fields_toast">Fields with asterisk are mandatory</string>
+    <string name="sender_equals_addressee_toast">Sender and recipient are the same</string>
+    <string name="no_people_selected_toast">Select at least one person</string>
+    <string name="empty_name_toast">Insert a name</string>
+    <string name="app_name">SettleApp</string>
+    <string name="credits">Application developed by:\n\nCarlo Delle Donne\nEdoardo Galletti\nFilippo Piva\n\nCopyright © 2015\-2016 Tarbula Inc. All rights reserved.</string>
+    <string name="credits_activity">Credits</string>
+</resources>

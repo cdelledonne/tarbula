@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">SettleApp</string>
+    <string name="title_activity_settings">Gestione inquilini</string>
+    <string name="tab1_label">MANCANTI</string>
+    <string name="tab2_label">SPESE</string>
+    <string name="tab3_label">BILANCIO</string>
+    <string name="empty_tobuy_list_textview">
+        Manca qualcosa? Aggiungi un prodotto alla lista delle cose mancanti cliccando sul bottone
+        in basso.
+    </string>
+    <string name="empty_bought_list_textview">
+        Hai comprato qualcosa? Aggiungi il tuo acquisto alla lista delle spese effettuate cliccando
+        sul bottone in basso.
+    </string>
+    <string name="empty_balance_list_textview">
+        Puoi aggiungere un inquilino selezionando \"Gestione inquilini\" nel menu.
+    </string>
+    <string name="empty_mates_list_textview">
+        Nessun inquilino presente.
+    </string>
+    <string name="credits">Applicazione sviluppata da:\n\nCarlo Delle Donne\nEdoardo Galletti\nFilippo Piva\n\nCopyright © 2015-2016 Tarbula Inc. Tutti i diritti riservati.</string>
+    <string name="empty_filter_textview">Nessuna spesa effettuata da</string>
+    <string name="bought_product_dialog">Nuova spesa</string>
+    <string name="tobuy_product_dialog">Prodotto mancante</string>
+    <string name="dialog_name_hint">* Nome</string>
+    <string name="dialog_description_hint">Descrizione</string>
+    <string name="dialog_quantity_hint">Quantità</string>
+    <string name="dialog_price_hint">* Prezzo</string>
+    <string name="dialog_bywhom_hint">* Da:</string>
+    <string name="dialog_forwhom_hint">* Per:</string>
+    <string name="add_mate_hint">Aggiungi un inquilino</string>
+    <string name="dialog_payment_amount_hint">* Importo</string>
+    <string name="button_cancel">ANNULLA</string>
+    <string name="button_confirm">CONFERMA</string>
+    <string name="button_delete">ELIMINA</string>
+    <string name="button_ok">OK</string>
+    <string name="button_direct_payment">PAGAMENTO DIRETTO</string>
+    <string name="button_clear_balance">AZZERA SALDO</string>
+    <string name="everyone">Tutti</string>
+    <string name="buyer">Acquirente: %1$s</string>
+    <string name="name">Nome: %1$s</string>
+    <string name="price">Prezzo: %1$d x %2$s € = %3$s €</string>
+    <string name="description">Descrizione: %1$s</string>
+    <string name="users">Beneficiari: %1$s</string>
+    <string name="by_whom_dialog">Acquistato da:</string>
+    <string name="for_whom_dialog">Acquistato per:</string>
+    <string name="filter_dialog">Filtra per acquirente:</string>
+    <string name="warning_dialog">Attenzione</string>
+    <string name="direct_payment_dialog">Pagamento diretto</string>
+    <string name="no_description">Nessuna descrizione</string>
+    <string name="reset_balance_text">Vuoi azzerare il saldo e cancellare la lista delle spese?</string>
+    <string name="delete_mate_text">Vuoi eliminare l\'inquilino?</string>
+    <string name="dialog_item_detail_title">Dettaglio spesa</string>
+    <string name="by_whom">Da: %1$s</string>
+    <string name="for_whom">Per: %1$s</string>
+    <string name="for_how_many">Per: %1$d persone</string>
+    <string name="for_one_person">Per: 1 persona</string>
+    <string name="for_all_people">Per: tutti</string>
+    <string name="payment_to">Pagamento a %1$s</string>
+    <string name="nonnull_mates_balance_toast">Il saldo dell\'inquilino deve essere nullo</string>
+    <string name="mandatory_fields_toast">I campi con l\'asterisco sono obbligatori</string>
+    <string name="sender_equals_addressee_toast">Mittente e destinatario coincidono</string>
+    <string name="no_people_selected_toast">Selezionare almeno una persona</string>
+    <string name="empty_name_toast">Inserire un nome</string>
+    <string name="credits_activity">Crediti</string>
+</resources>

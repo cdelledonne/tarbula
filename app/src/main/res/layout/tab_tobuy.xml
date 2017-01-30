@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main2"
+    tools:context="com.carlodelledonne.tarbula_10.MainTabActivity"
+    android:background="@android:color/transparent">
+
+    <ListView android:id="@+id/tobuy_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:background="@drawable/list_background"
+        android:dividerHeight="0dp"
+        android:divider="@null">
+    </ListView>
+
+    <!-- la seguente TextView viene automaticamente caricata
+         dalla ListActivity quando la lista è vuota -->
+    <TextView android:id="@+id/no_tobuy_element_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:text="@string/empty_tobuy_list_textview" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:menu_labels_ellipsize="start"
+        app:fab_colorNormal="#303f9f"
+        app:fab_colorPressed="#171e4d"
+        app:fab_colorRipple="#171e4d"
+        android:src="@drawable/fab_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

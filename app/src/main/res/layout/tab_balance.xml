@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView android:id="@+id/balance_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:background="@drawable/list_background"
+            android:divider="@null"
+            android:dividerHeight="0dp">
+        </ListView>
+
+        <TextView android:id="@+id/no_balance_element_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:text="@string/empty_balance_list_textview" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/directPayment_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/button_text"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/button_confirm"
+            android:text="@string/button_direct_payment"/>
+
+        <Button android:id="@+id/erase_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/button_text"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/button_confirm"
+            android:text="@string/button_clear_balance"/>
+
+    </LinearLayout>
+
+</LinearLayout>

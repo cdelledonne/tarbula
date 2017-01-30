@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dialog_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/dialog_item_detail_title"
+        style="@style/RtlOverlay.DialogWindowTitle.AppCompat"
+        android:textColor="@android:color/white"
+        android:background="@color/dialog_titlebar_background"
+        android:elevation="5dp"/>
+
+    <com.carlodelledonne.tarbula_10.services.MaxHeightScrollView
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:maxHeight="250dp"
+        android:background="@drawable/edittext_dialog"
+        android:padding="3dp">
+
+        <TextView android:id="@+id/detail_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/warning_text">
+
+        </TextView>
+
+    </com.carlodelledonne.tarbula_10.services.MaxHeightScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <Button android:id="@+id/button_cancel"
+            style="@style/button_text"
+            android:background="@drawable/button_confirm"
+            android:text="@string/button_ok"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="2dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
