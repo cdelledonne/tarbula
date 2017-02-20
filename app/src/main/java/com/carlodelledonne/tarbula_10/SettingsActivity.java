@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.carlodelledonne.tarbula_10.services.Inquilino;
+import com.carlodelledonne.tarbula_10.services.Tenant;
 import com.carlodelledonne.tarbula_10.services.StorageUtility;
 
 import java.util.Collections;
@@ -26,7 +26,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private EditText editText;
     static TextView textView;
-    public static Inquilino toRemove;
+    public static Tenant toRemove;
     private static FragmentManager manager;
 
     @Override
@@ -39,6 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.new_edittext);
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
         ListView listView = (ListView) findViewById(R.id.list_view);
+
+        // TODO: retrieve tenants list here
         listView.setAdapter(MainTabActivity.mAdapterMates);
         textView = (TextView) findViewById(R.id.no_mates_text);
         checkTextViewVisibility();
@@ -49,10 +51,11 @@ public class SettingsActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
     }
 
-    public void addInquilino(View view) {
-        Inquilino nuovo = Inquilino.newInquilino(editText.getText().toString());
+    public void addTenant(View view) {
+        // TODO: update method after introducing database
+        Tenant newTenant = Tenant.newInquilino(editText.getText().toString());
         if (!TextUtils.isEmpty(editText.getText())){
-            MainTabActivity.mListMates.add(nuovo);
+            MainTabActivity.mListMates.add(newTenant);
             StorageUtility.storeList(this, MainTabActivity.mListMates, MainTabActivity.MATES_LIST_FILE);
             MainTabActivity.mAdapterMates.notifyDataSetChanged();
             MainTabActivity.temp = MainTabActivity.mListMates;
@@ -82,7 +85,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static void openDeleteMateDialog() {
         FragmentTransaction ft = manager.beginTransaction();
-        DialogFragment newDialog = DeleteMateDialog.newInstance();
+        DialogFragment newDialog = DeleteTenantDialog.newInstance();
         newDialog.show(ft, "delete_mate");
     }
 }

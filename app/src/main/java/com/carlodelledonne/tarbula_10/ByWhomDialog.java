@@ -45,6 +45,8 @@ public class ByWhomDialog extends DialogFragment {
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, rabioButtonHeightPixel);
         //params.setMargins(rabioButtonMarginPixel,rabioButtonMarginPixel,rabioButtonMarginPixel,rabioButtonMarginPixel);
+
+        // TODO: retrieve tenants list here
         for (int i=0; i<MainTabActivity.mListMates.size(); i++) {
             RadioButton radioButton = new RadioButton(getActivity());
             radioButton.setText(MainTabActivity.mListMates.get(i).toString());

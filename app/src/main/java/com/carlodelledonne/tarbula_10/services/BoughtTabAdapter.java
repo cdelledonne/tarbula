@@ -18,12 +18,12 @@ import java.util.List;
 /**
  * Created by Carlo on 05/12/15.
  */
-public class BoughtTabAdapter extends ArrayAdapter<Prodotto> {
+public class BoughtTabAdapter extends ArrayAdapter<Product> {
 
-    private List<Prodotto> objects;
+    private List<Product> objects;
     //private HashMap<Integer, Boolean> mSelection = new HashMap<Integer, Boolean>();
 
-    public BoughtTabAdapter(Context context, int textViewResourceId, List<Prodotto> objects) {
+    public BoughtTabAdapter(Context context, int textViewResourceId, List<Product> objects) {
         super(context, textViewResourceId, objects);
         this.objects = objects;
     }
@@ -34,7 +34,7 @@ public class BoughtTabAdapter extends ArrayAdapter<Prodotto> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = (FrameLayout) inflater.inflate(R.layout.list_bought, null);
         }
-        Prodotto p = objects.get(position);
+        Product p = objects.get(position);
         if (p != null) {
             TextView name = (TextView) v.findViewById(R.id.titolo);
             TextView buyer = (TextView) v.findViewById(R.id.sottotitolo);
@@ -60,7 +60,7 @@ public class BoughtTabAdapter extends ArrayAdapter<Prodotto> {
             if (image != null) {
                 int filter = Color.parseColor("#da0000");
                 image.setColorFilter(filter);
-                final Prodotto toRemove = p;
+                final Product toRemove = p;
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

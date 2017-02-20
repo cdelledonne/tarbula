@@ -16,10 +16,10 @@ import java.util.Collections;
 /**
  * Created by Carlo on 15/12/15.
  */
-public class DeleteMateDialog extends DialogFragment {
+public class DeleteTenantDialog extends DialogFragment {
 
-    static DeleteMateDialog newInstance() {
-        return new DeleteMateDialog();
+    static DeleteTenantDialog newInstance() {
+        return new DeleteTenantDialog();
     }
 
     @Override
@@ -58,6 +58,7 @@ public class DeleteMateDialog extends DialogFragment {
     }
 
     public void deleteMate() {
+        // TODO: update method after introducing database
         int a = Math.round(SettingsActivity.toRemove.getBalance() * 100);
         if (Math.round(SettingsActivity.toRemove.getBalance() * 100) == 0) {
             MainTabActivity.mListMates.remove(SettingsActivity.toRemove);

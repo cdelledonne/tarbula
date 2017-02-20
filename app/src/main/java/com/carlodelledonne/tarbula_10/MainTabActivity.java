@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 
 import com.carlodelledonne.tarbula_10.services.BalanceTabAdapter;
 import com.carlodelledonne.tarbula_10.services.BoughtTabAdapter;
-import com.carlodelledonne.tarbula_10.services.Inquilino;
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Tenant;
+import com.carlodelledonne.tarbula_10.services.Product;
 import com.carlodelledonne.tarbula_10.services.SampleFragmentPagerAdapter;
 import com.carlodelledonne.tarbula_10.services.SettingsAdapter;
 import com.carlodelledonne.tarbula_10.services.StorageUtility;
@@ -23,17 +23,18 @@ import java.util.List;
 
 public class MainTabActivity extends AppCompatActivity {
 
-    static List<Prodotto> mListTobuy;
-    public static List<Prodotto> mListBought;
-    static List<Inquilino> temp;
-    public static List<Inquilino> mListMates;
+    static List<Product> mListTobuy;
+    public static List<Product> mListBought;
+    static List<Tenant> temp;
+    public static List<Tenant> mListMates;
     static BoughtTabAdapter mAdapterBought;
     static BalanceTabAdapter mAdapterBalance;
     static TobuyTabAdapter mAdapterTobuy;
-    public static ArrayAdapter<Inquilino> mAdapterMates;
+    public static ArrayAdapter<Tenant> mAdapterMates;
     private ViewPager viewPager;
-    //static ArrayAdapter<Prodotto> mAdapterBought;
+    //static ArrayAdapter<Product> mAdapterBought;
 
+    // TODO: files handles not required after switching to database
     final static String TOBUY_LIST_FILE = "com.dellegallopiva.files.TOBUY_LIST";
     final static String BOUGHT_LIST_FILE = "com.dellegallopiva.files.BOUGHT_LIST";
     public final static String MATES_LIST_FILE = "com.dellegallopiva.files.MATES_LIST";
@@ -66,12 +67,14 @@ public class MainTabActivity extends AppCompatActivity {
         mListBought = new ArrayList<>();
         mListMates = new ArrayList<>();
         temp = new ArrayList<>();
+
+        // TODO: the list-loading mode will change
         if (StorageUtility.loadList(this, TOBUY_LIST_FILE).size() > 0)
-            mListTobuy = (List<Prodotto>)StorageUtility.loadList(this, TOBUY_LIST_FILE);
+            mListTobuy = (List<Product>)StorageUtility.loadList(this, TOBUY_LIST_FILE);
         if (StorageUtility.loadList(this, BOUGHT_LIST_FILE).size() > 0)
-            mListBought = (List<Prodotto>)StorageUtility.loadList(this, BOUGHT_LIST_FILE);
+            mListBought = (List<Product>)StorageUtility.loadList(this, BOUGHT_LIST_FILE);
         if (StorageUtility.loadList(this, MATES_LIST_FILE).size() > 0)
-            mListMates = (List<Inquilino>)StorageUtility.loadList(this, MATES_LIST_FILE);
+            mListMates = (List<Tenant>)StorageUtility.loadList(this, MATES_LIST_FILE);
 
         mAdapterTobuy = new TobuyTabAdapter(this, R.layout.list_tobuy, mListTobuy);
         mAdapterBought = new BoughtTabAdapter(this, R.layout.list_bought, mListBought);
@@ -97,6 +100,8 @@ public class MainTabActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.w(TAG_LOG, "onPause");
+
+        // TODO: the updating mechanism will be immediately after each change, not just onPause
         StorageUtility.storeList(this, MainTabActivity.mListBought,
                 MainTabActivity.BOUGHT_LIST_FILE);
         StorageUtility.storeList(this, MainTabActivity.mListTobuy,

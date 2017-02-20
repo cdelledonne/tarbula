@@ -2,7 +2,6 @@ package com.carlodelledonne.tarbula_10.services;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +18,12 @@ import java.util.List;
 /**
  * Created by Carlo on 05/12/15.
  */
-public class TobuyTabAdapter extends ArrayAdapter<Prodotto> {
+public class TobuyTabAdapter extends ArrayAdapter<Product> {
 
-    private List<Prodotto> objects;
+    private List<Product> objects;
     //private HashMap<Integer, Boolean> mSelection = new HashMap<Integer, Boolean>();
 
-    public TobuyTabAdapter(Context context, int textViewResourceId, List<Prodotto> objects) {
+    public TobuyTabAdapter(Context context, int textViewResourceId, List<Product> objects) {
         super(context, textViewResourceId, objects);
         this.objects = objects;
     }
@@ -35,7 +34,7 @@ public class TobuyTabAdapter extends ArrayAdapter<Prodotto> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = (FrameLayout) inflater.inflate(R.layout.list_tobuy, null);
         }
-        Prodotto p = objects.get(position);
+        Product p = objects.get(position);
         if (p != null) {
             TextView name = (TextView) v.findViewById(R.id.titolo);
           /*TextView buyer = (TextView) v.findViewById(R.id.sottotitolo);
@@ -61,7 +60,7 @@ public class TobuyTabAdapter extends ArrayAdapter<Prodotto> {
             if (image != null) {
                 int filter = Color.parseColor("#da0000");
                 image.setColorFilter(filter);
-                final Prodotto toRemove = p;
+                final Product toRemove = p;
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

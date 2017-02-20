@@ -1,6 +1,5 @@
 package com.carlodelledonne.tarbula_10;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,9 +14,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Product;
 import com.github.clans.fab.FloatingActionButton;
 
 /**
@@ -28,7 +26,7 @@ public class TobuyPageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     static TextView textView;
-    static Prodotto toRemove;
+    static Product toRemove;
     public static boolean deletable;
 
     private int mPage;
@@ -87,6 +85,7 @@ public class TobuyPageFragment extends Fragment {
     }
 
     public void boughtProductFromListDialog(int position) {
+        // TODO: update method after introducing database
         toRemove = MainTabActivity.mListTobuy.get(position);
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
         DialogFragment newDialog = BoughtProductDialog.newInstance();
@@ -105,7 +104,8 @@ public class TobuyPageFragment extends Fragment {
         else textView.setVisibility(View.INVISIBLE);
     }
 
-    public static void removeElement(Prodotto p) {
+    public static void removeElement(Product p) {
+        // TODO: update method after introducing database
         MainTabActivity.mListTobuy.remove(p);
         if (MainTabActivity.mListTobuy.isEmpty())
             deletable = false;

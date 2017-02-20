@@ -15,12 +15,12 @@ import java.util.List;
 /**
  * Created by Carlo on 05/12/15.
  */
-public class BalanceTabAdapter extends ArrayAdapter<Inquilino> {
+public class BalanceTabAdapter extends ArrayAdapter<Tenant> {
 
-    private List<Inquilino> objects;
+    private List<Tenant> objects;
     //private HashMap<Integer, Boolean> mSelection = new HashMap<Integer, Boolean>();
 
-    public BalanceTabAdapter(Context context, int textViewResourceId, List<Inquilino> objects) {
+    public BalanceTabAdapter(Context context, int textViewResourceId, List<Tenant> objects) {
         super(context, textViewResourceId, objects);
         this.objects = objects;
     }
@@ -31,7 +31,7 @@ public class BalanceTabAdapter extends ArrayAdapter<Inquilino> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = (ActivatedRelativeLayout) inflater.inflate(R.layout.list_balance, null);
         }
-        Inquilino p = objects.get(position);
+        Tenant p = objects.get(position);
         if (p != null) {
             TextView name = (TextView) v.findViewById(R.id.titolo);
             TextView price = (TextView) v.findViewById(R.id.prezzo);

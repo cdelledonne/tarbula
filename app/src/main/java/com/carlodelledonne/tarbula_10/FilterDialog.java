@@ -25,6 +25,8 @@ public class FilterDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO: retrieve tenants list at run-time here
+
         int style = DialogFragment.STYLE_NO_TITLE;
         int theme = android.R.style.Theme_DeviceDefault_Light_Dialog_MinWidth;
         setStyle(style, theme);

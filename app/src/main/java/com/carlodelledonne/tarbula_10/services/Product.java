@@ -14,30 +14,30 @@ import java.util.Locale;
  * @author Edoardo
  * @version 1.0
  */
-public class Prodotto implements Serializable{
+public class Product implements Serializable{
 
     // campi
     private String name;
     private String description;
-    private Inquilino buyer;
+    private Tenant buyer;
     private float price;
     private int quantity;
-    private List<Inquilino> users;
+    private List<Tenant> users;
     private Date date;
 
     /**
      * Private constructor, only inner methods can call it
      */
-    private Prodotto() {
+    private Product() {
     }
 
     /**
-     * Static method used for instantiating an object of Prodotto
-     * @param name the name of the Prodotto
-     * @return a Prodotto with the specified name
+     * Static method used for instantiating an object of Product
+     * @param name the name of the Product
+     * @return a Product with the specified name
      */
-    public static Prodotto newProdotto(String name) {
-        Prodotto result = new Prodotto();
+    public static Product newProdotto(String name) {
+        Product result = new Product();
         result.name = name;
         result.quantity = 1;
         result.date = new Date();
@@ -45,91 +45,91 @@ public class Prodotto implements Serializable{
     }
 
     /**
-     * Method for adding a description to a Prodotto
+     * Method for adding a description to a Product
      * @param description the description to be added
-     * @return the Prodotto which called this method, with the specified description
+     * @return the Product which called this method, with the specified description
      */
-    public Prodotto addDescription(String description) {
+    public Product addDescription(String description) {
         this.description = description;
         return this;
     }
 
     /**
-     * Method for adding a price to a Prodotto
+     * Method for adding a price to a Product
      * @param price the price to be added
-     * @return the Prodotto which called this method, with the specified price
+     * @return the Product which called this method, with the specified price
      */
-    public Prodotto addPrice(float price) {
+    public Product addPrice(float price) {
         this.price = price;
         return this;
     }
 
     /**
-     * Method for adding a quantity to a Prodotto
+     * Method for adding a quantity to a Product
      * @param quantity the quantity to be added
-     * @return the Prodotto which called this method, with the specified quantity
+     * @return the Product which called this method, with the specified quantity
      */
-    public Prodotto addQuantity(int quantity) {
+    public Product addQuantity(int quantity) {
         this.quantity = quantity;
         return this;
     }
 
     /**
-     * Method for adding a buyer to a Prodotto
+     * Method for adding a buyer to a Product
      * @param buyer the buyer to be added
-     * @return the Prodotto which called this method, with the specified buyer
+     * @return the Product which called this method, with the specified buyer
      */
-    public Prodotto addBuyer(Inquilino buyer) {
+    public Product addBuyer(Tenant buyer) {
         this.buyer = buyer;
         return this;
     }
 
-    public Prodotto addUsers(List<Inquilino> users) {
+    public Product addUsers(List<Tenant> users) {
         this.users = users;
         return this;
     }
 
     /**
-     * Method for getting the name of a Prodotto
-     * @return the name of the Prodotto which called this method
+     * Method for getting the name of a Product
+     * @return the name of the Product which called this method
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * Method for getting the description of a Prodotto
-     * @return the description of the Prodotto which called this method
+     * Method for getting the description of a Product
+     * @return the description of the Product which called this method
      */
     public String getDescription() {
         return this.description;
     }
 
     /**
-     * Method for getting the price of a Prodotto
-     * @return the price of the Prodotto which called this method
+     * Method for getting the price of a Product
+     * @return the price of the Product which called this method
      */
     public float getPrice(){
         return this.price;
     }
 
     /**
-     * Method for getting the quantity of a Prodotto
-     * @return the quantity of the Prodotto which called this method
+     * Method for getting the quantity of a Product
+     * @return the quantity of the Product which called this method
      */
     public int getQuantity() {
         return this.quantity;
     }
 
     /**
-     * Method for getting the buyer of a Prodotto
-     * @return the buyer of the Prodotto which called this method
+     * Method for getting the buyer of a Product
+     * @return the buyer of the Product which called this method
      */
-    public Inquilino getBuyer() {
+    public Tenant getBuyer() {
         return this.buyer;
     }
 
-    public List<Inquilino> getUsers() {
+    public List<Tenant> getUsers() {
         return this.users;
     }
 

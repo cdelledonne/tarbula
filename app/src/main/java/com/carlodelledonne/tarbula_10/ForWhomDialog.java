@@ -10,7 +10,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.carlodelledonne.tarbula_10.services.Inquilino;
+import com.carlodelledonne.tarbula_10.services.Tenant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +48,8 @@ public class ForWhomDialog extends DialogFragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, checkBoxHeightPixel);
         //params.setMargins(checkBoxMarginPixel,checkBoxMarginPixel,checkBoxMarginPixel,checkBoxMarginPixel);
+
+        // TODO: retrieve tenants list here
         for (int i=0; i<MainTabActivity.mListMates.size(); i++) {
             CheckBox checkBox = new CheckBox(getActivity());
             checkBox.setText(MainTabActivity.mListMates.get(i).toString());
@@ -67,7 +69,7 @@ public class ForWhomDialog extends DialogFragment {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Inquilino> list = new ArrayList<Inquilino>();
+                List<Tenant> list = new ArrayList<Tenant>();
                 for (int i=0; i<checkList.length; i++)
                     if (checkList[i].isChecked())
                         list.add(MainTabActivity.mListMates.get(i));

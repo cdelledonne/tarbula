@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carlodelledonne.tarbula_10.services.DecimalDigitsInputFilter;
-import com.carlodelledonne.tarbula_10.services.Inquilino;
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Tenant;
+import com.carlodelledonne.tarbula_10.services.Product;
 
 import java.util.List;
 
@@ -30,8 +30,8 @@ public class BoughtProductDialog extends DialogFragment {
     private EditText editTextName, editTextDesc, editTextQuant, editTextPrice;
     private TextView textViewName;
     static TextView textViewByWhom, textViewForWhom;
-    static List<Inquilino> forWhom;
-    static Inquilino byWhom;
+    static List<Tenant> forWhom;
+    static Tenant byWhom;
     private boolean thereIsName = false, thereIsPrice = false;
 
     static BoughtProductDialog newInstance() {
@@ -45,6 +45,7 @@ public class BoughtProductDialog extends DialogFragment {
         int style = DialogFragment.STYLE_NO_TITLE;
         int theme = android.R.style.Theme_DeviceDefault_Light_Dialog_MinWidth;
         setStyle(style, theme);
+        // TODO: retrieve tenants list here
         forWhom = MainTabActivity.mListMates;
         byWhom = null;
     }
@@ -140,6 +141,7 @@ public class BoughtProductDialog extends DialogFragment {
     }
 
     public void removeProductFromTobuyList() {
+        // TODO: update method after introducing database
         MainTabActivity.mListTobuy.remove(TobuyPageFragment.toRemove);
         MainTabActivity.mAdapterTobuy.notifyDataSetChanged();
         TobuyPageFragment.toRemove = null;
@@ -147,7 +149,8 @@ public class BoughtProductDialog extends DialogFragment {
     }
 
     public void addProductToBoughtList(String name) {
-        final Prodotto p = Prodotto.newProdotto(name);
+        // TODO: update method after introducing database
+        final Product p = Product.newProdotto(name);
         p.addBuyer(byWhom);
         if (!TextUtils.isEmpty(editTextDesc.getText()))
             p.addDescription(editTextDesc.getText().toString());

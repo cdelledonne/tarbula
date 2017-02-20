@@ -15,11 +15,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.carlodelledonne.tarbula_10.services.BoughtTabAdapter;
-import com.carlodelledonne.tarbula_10.services.Inquilino;
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Tenant;
+import com.carlodelledonne.tarbula_10.services.Product;
 import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -34,18 +33,18 @@ public class BoughtPageFragment extends Fragment{
     public static final String ARG_PAGE = "ARG_PAGE";
 
     static ListView listView;
-    static List<Prodotto> tempList;
+    static List<Product> tempList;
     static TextView textView;
-    static Prodotto toRemove;
+    static Product toRemove;
     private FloatingActionButton button;
-    static Inquilino filter;
+    static Tenant filter;
     static TextView textViewFilter;
     private static Context context;
     private static View viewForSnackbar;
     public static boolean deletable;
     private static String empty_bought_list_textview;
     private static String empty_filter_textview;
-    static Prodotto detail;
+    static Product detail;
 
     int nr = 0;
 
@@ -82,13 +81,16 @@ public class BoughtPageFragment extends Fragment{
         textView = (TextView) view.findViewById(R.id.no_bought_element_text);
         checkTextViewVisibility();
         listView.setAdapter(MainTabActivity.mAdapterBought);
+
+        // TODO: element-retrieving will be done on-line, from database
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                detail = (Prodotto) listView.getItemAtPosition(position);
+                detail = (Product) listView.getItemAtPosition(position);
                 openDetailDialog();
             }
         });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -117,7 +119,7 @@ public class BoughtPageFragment extends Fragment{
         return view;
     }
 
-    /*public static void prova(final Prodotto p, final int position) {
+    /*public static void prova(final Product p, final int position) {
         MainTabActivity.mListBought.remove(p);
         refreshFilter();
         Snackbar snackbar = Snackbar.make(viewForSnackbar, "Elemento rimosso", Snackbar.LENGTH_LONG);
@@ -133,12 +135,14 @@ public class BoughtPageFragment extends Fragment{
     }*/
 
     public static void refreshFilter() {
+        // TODO: retrieve filtered list here
         tempList.clear();
-        for (Prodotto p : MainTabActivity.mListBought) {
+        for (Product p : MainTabActivity.mListBought) {
             if ((filter == null) ||
                     (p.getBuyer().getName().equals(filter.getName())))
                 tempList.add(p);
         }
+
         if (tempList.isEmpty())
             deletable = false;
         MainTabActivity.mAdapterBought =
@@ -179,11 +183,12 @@ public class BoughtPageFragment extends Fragment{
         else textView.setVisibility(View.INVISIBLE);
     }
 
-    public static void removeProductFromBoughtList(Prodotto p) {
+    public static void removeProductFromBoughtList(Product p) {
+        // TODO: rewrite this method from scratch after introducing database
         MainTabActivity.mListBought.remove(p);
         MainTabActivity.mAdapterBought.notifyDataSetChanged();
         float fraction = p.getPrice()/p.getUsers().size();
-        for (Inquilino i : p.getUsers()) {
+        for (Tenant i : p.getUsers()) {
             i.setBalance(i.getBalance() + fraction);
         }
         p.getBuyer().setBalance(p.getBuyer().getBalance() - p.getPrice());

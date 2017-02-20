@@ -5,18 +5,18 @@ import java.io.Serializable;
 /**
  * Created by Carlo on 24/11/15.
  */
-public class Inquilino implements Serializable, Comparable<Inquilino>{
+public class Tenant implements Serializable, Comparable<Tenant>{
 
     private String name;
     private float balance;
     private float totalExpense;
     private int boughtProduct;
 
-    private Inquilino() {
+    private Tenant() {
     }
 
-    public static Inquilino newInquilino(String name) {
-        Inquilino result = new Inquilino();
+    public static Tenant newInquilino(String name) {
+        Tenant result = new Tenant();
         result.name = name;
         result.balance = 0;
         result.totalExpense = 0;
@@ -57,7 +57,7 @@ public class Inquilino implements Serializable, Comparable<Inquilino>{
     }
 
     @Override
-    public int compareTo(Inquilino another) {
+    public int compareTo(Tenant another) {
         if (Math.round(this.getBalance()*100) > Math.round(another.getBalance()*100))
             return -1;
         else if (Math.round(this.getBalance() * 100) < Math.round(another.getBalance() * 100))

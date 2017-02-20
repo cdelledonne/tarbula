@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carlodelledonne.tarbula_10.services.DecimalDigitsInputFilter;
-import com.carlodelledonne.tarbula_10.services.Inquilino;
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Tenant;
+import com.carlodelledonne.tarbula_10.services.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
 public class DirectPaymentDialog extends DialogFragment{
     private EditText editTextPrice;
     static TextView textViewByWhom, textViewForWhom;
-    static Inquilino byWhom, forWhom;
+    static Tenant byWhom, forWhom;
     private boolean thereIsPrice = false;
 
     static DirectPaymentDialog newInstance() {
@@ -109,13 +109,14 @@ public class DirectPaymentDialog extends DialogFragment{
     }
 
     public void addProductToBoughtList(String name) {
-        final Prodotto p = Prodotto.newProdotto(name);
+        // TODO: update method after introducing database
+        final Product p = Product.newProdotto(name);
         p.addPrice(Float.parseFloat(editTextPrice.getText().toString()));
         p.addBuyer(byWhom);
         /*if (!TextUtils.isEmpty(editTextDesc.getText()))
             p.addDescription(editTextDesc.getText().toString());
         else p.addDescription("Nessuna descrizione");*/
-        List<Inquilino> list = new ArrayList<>();
+        List<Tenant> list = new ArrayList<>();
         list.add(forWhom);
         p.addUsers(list);
         MainTabActivity.mListBought.add(0, p);

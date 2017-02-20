@@ -14,10 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.carlodelledonne.tarbula_10.services.Inquilino;
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Tenant;
+import com.carlodelledonne.tarbula_10.services.Product;
 
 import java.util.Collections;
 
@@ -77,9 +76,10 @@ public class BalancePageFragment extends Fragment{
     return view;
     }
 
-    public static void refreshBalance(Prodotto p) {
+    public static void refreshBalance(Product p) {
+        // TODO: rewrite this method from scratch after introducing database
         float fraction = p.getPrice()/p.getUsers().size();
-        for (Inquilino i : p.getUsers()) {
+        for (Tenant i : p.getUsers()) {
             i.setBalance(i.getBalance() - fraction);
         }
         p.getBuyer().setBalance(p.getBuyer().getBalance() + p.getPrice());

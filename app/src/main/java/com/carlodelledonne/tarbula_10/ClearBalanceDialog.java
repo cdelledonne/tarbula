@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.carlodelledonne.tarbula_10.services.Inquilino;
+import com.carlodelledonne.tarbula_10.services.Tenant;
 
 /**
  * Created by Carlo on 15/12/15.
@@ -51,13 +51,14 @@ public class ClearBalanceDialog extends DialogFragment {
     }
 
     public void clearBalance() {
+        // TODO: update method after introducing database
         MainTabActivity.mListBought.clear();
         BoughtPageFragment.refreshFilter();
         BoughtPageFragment.checkTextViewVisibility();
         // TODO: storage
         //StorageUtility.storeList(getActivity(), MainTabActivity.mListBought,
         //        MainTabActivity.BOUGHT_LIST_FILE);
-        for (Inquilino i : MainTabActivity.mListMates)
+        for (Tenant i : MainTabActivity.mListMates)
             i.setBalance(0);
         MainTabActivity.mAdapterBalance.notifyDataSetChanged();
         // TODO: storage

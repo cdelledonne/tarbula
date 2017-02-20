@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.carlodelledonne.tarbula_10.services.Prodotto;
+import com.carlodelledonne.tarbula_10.services.Product;
 
 /**
  * Created by Carlo on 17/11/15.
@@ -65,7 +65,8 @@ public class TobuyProductDialog extends DialogFragment {
     }
 
     public void addProductToTobuyList(String name) {
-        final Prodotto p = Prodotto.newProdotto(name);
+        // TODO: update method after introducing database
+        final Product p = Product.newProdotto(name);
         MainTabActivity.mListTobuy.add(p);
         MainTabActivity.mAdapterTobuy.notifyDataSetChanged();
         TobuyPageFragment.checkTextViewVisibility();
