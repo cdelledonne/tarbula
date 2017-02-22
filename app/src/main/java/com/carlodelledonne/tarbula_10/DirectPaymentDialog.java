@@ -66,7 +66,7 @@ public class DirectPaymentDialog extends DialogFragment{
         });
 
         Button buttonConfirm = (Button) v.findViewById(R.id.button_confirm);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+        /*buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (thereIsPrice && byWhom != null && forWhom != null && byWhom != forWhom) {
@@ -82,7 +82,7 @@ public class DirectPaymentDialog extends DialogFragment{
                     toast.show();
                 }
             }
-        });
+        });*/
         Button buttonCancel = (Button) v.findViewById(R.id.button_cancel);
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,14 +108,12 @@ public class DirectPaymentDialog extends DialogFragment{
         return v;
     }
 
-    public void addProductToBoughtList(String name) {
+    /*public void addProductToBoughtList(String name) {
         // TODO: update method after introducing database
-        final Product p = Product.newProdotto(name);
+        final Product p = Product.newProduct(name, 1);
         p.addPrice(Float.parseFloat(editTextPrice.getText().toString()));
-        p.addBuyer(byWhom);
-        /*if (!TextUtils.isEmpty(editTextDesc.getText()))
-            p.addDescription(editTextDesc.getText().toString());
-        else p.addDescription("Nessuna descrizione");*/
+        p.addBuyer(byWhom.toString());
+
         List<Tenant> list = new ArrayList<>();
         list.add(forWhom);
         p.addUsers(list);
@@ -130,7 +128,7 @@ public class DirectPaymentDialog extends DialogFragment{
         // TODO: storage
         //StorageUtility.storeList(getActivity(), MainTabActivity.mListMates,
         //        MainTabActivity.MATES_LIST_FILE);
-    }
+    }*/
 
     public void openByWhomDialog() {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SettleApp</string>
+    <string name="app_name">Tarbula</string>
     <string name="title_activity_settings">Gestione inquilini</string>
     <string name="tab1_label">MANCANTI</string>
     <string name="tab2_label">SPESE</string>

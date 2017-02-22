@@ -53,7 +53,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void addTenant(View view) {
         // TODO: update method after introducing database
-        Tenant newTenant = Tenant.newInquilino(editText.getText().toString());
+        Tenant newTenant = Tenant.newTenant(editText.getText().toString());
         if (!TextUtils.isEmpty(editText.getText())){
             MainTabActivity.mListMates.add(newTenant);
             StorageUtility.storeList(this, MainTabActivity.mListMates, MainTabActivity.MATES_LIST_FILE);

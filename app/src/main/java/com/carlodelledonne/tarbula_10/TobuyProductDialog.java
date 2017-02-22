@@ -66,7 +66,7 @@ public class TobuyProductDialog extends DialogFragment {
 
     public void addProductToTobuyList(String name) {
         // TODO: update method after introducing database
-        final Product p = Product.newProdotto(name);
+        final Product p = Product.newProduct(name, 0);
         MainTabActivity.mListTobuy.add(p);
         MainTabActivity.mAdapterTobuy.notifyDataSetChanged();
         TobuyPageFragment.checkTextViewVisibility();

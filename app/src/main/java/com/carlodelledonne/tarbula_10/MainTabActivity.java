@@ -1,5 +1,7 @@
 package com.carlodelledonne.tarbula_10;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,9 @@ import android.widget.ArrayAdapter;
 
 import com.carlodelledonne.tarbula_10.services.BalanceTabAdapter;
 import com.carlodelledonne.tarbula_10.services.BoughtTabAdapter;
+import com.carlodelledonne.tarbula_10.services.DatabaseHandler;
+import com.carlodelledonne.tarbula_10.services.GetProducts;
+import com.carlodelledonne.tarbula_10.services.GetTenants;
 import com.carlodelledonne.tarbula_10.services.Tenant;
 import com.carlodelledonne.tarbula_10.services.Product;
 import com.carlodelledonne.tarbula_10.services.SampleFragmentPagerAdapter;
@@ -23,16 +28,22 @@ import java.util.List;
 
 public class MainTabActivity extends AppCompatActivity {
 
-    static List<Product> mListTobuy;
+    public static List<Product> mListTobuy;
     public static List<Product> mListBought;
-    static List<Tenant> temp;
+    public static List<Tenant> temp;
     public static List<Tenant> mListMates;
-    static BoughtTabAdapter mAdapterBought;
-    static BalanceTabAdapter mAdapterBalance;
-    static TobuyTabAdapter mAdapterTobuy;
+    public static BoughtTabAdapter mAdapterBought;
+    public static BalanceTabAdapter mAdapterBalance;
+    public static TobuyTabAdapter mAdapterTobuy;
     public static ArrayAdapter<Tenant> mAdapterMates;
     private ViewPager viewPager;
     //static ArrayAdapter<Product> mAdapterBought;
+
+    public static Context context;
+
+    public static ProgressDialog pDialog;
+
+    public static Tenant filterTenant = null;
 
     // TODO: files handles not required after switching to database
     final static String TOBUY_LIST_FILE = "com.dellegallopiva.files.TOBUY_LIST";
@@ -40,6 +51,8 @@ public class MainTabActivity extends AppCompatActivity {
     public final static String MATES_LIST_FILE = "com.dellegallopiva.files.MATES_LIST";
 
     public static final String TAG_LOG = MainTabActivity.class.getName();
+
+    private static final String LOG = "DatabaseHandler_log";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +74,12 @@ public class MainTabActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
+        context = getApplicationContext();
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Retrieving products...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(true);
 
         //setup liste e adapter
         mListTobuy = new ArrayList<>();
@@ -68,19 +87,24 @@ public class MainTabActivity extends AppCompatActivity {
         mListMates = new ArrayList<>();
         temp = new ArrayList<>();
 
+        //new GetProducts().execute();
+        new GetTenants().execute();
+
         // TODO: the list-loading mode will change
-        if (StorageUtility.loadList(this, TOBUY_LIST_FILE).size() > 0)
-            mListTobuy = (List<Product>)StorageUtility.loadList(this, TOBUY_LIST_FILE);
-        if (StorageUtility.loadList(this, BOUGHT_LIST_FILE).size() > 0)
-            mListBought = (List<Product>)StorageUtility.loadList(this, BOUGHT_LIST_FILE);
-        if (StorageUtility.loadList(this, MATES_LIST_FILE).size() > 0)
-            mListMates = (List<Tenant>)StorageUtility.loadList(this, MATES_LIST_FILE);
+        //if (StorageUtility.loadList(this, TOBUY_LIST_FILE).size() > 0)
+        //    mListTobuy = (List<Product>)StorageUtility.loadList(this, TOBUY_LIST_FILE);
+        //if (StorageUtility.loadList(this, BOUGHT_LIST_FILE).size() > 0)
+        //    mListBought = (List<Product>)StorageUtility.loadList(this, BOUGHT_LIST_FILE);
+        //if (StorageUtility.loadList(this, MATES_LIST_FILE).size() > 0)
+        //    mListMates = (List<Tenant>)StorageUtility.loadList(this, MATES_LIST_FILE);
+
+        Log.d(LOG, "listsLoaded");
 
         mAdapterTobuy = new TobuyTabAdapter(this, R.layout.list_tobuy, mListTobuy);
         mAdapterBought = new BoughtTabAdapter(this, R.layout.list_bought, mListBought);
         mAdapterMates = new SettingsAdapter(this, R.layout.list_mates, mListMates);
-        temp = mListMates;
-        Collections.sort(temp);
+        //temp = mListMates;
+        //Collections.sort(temp);
         mAdapterBalance = new BalanceTabAdapter(this, R.layout.list_balance, temp);
     }
 

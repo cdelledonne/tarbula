@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.carlodelledonne.tarbula_10.services.BoughtTabAdapter;
+import com.carlodelledonne.tarbula_10.services.GetProducts;
 import com.carlodelledonne.tarbula_10.services.Tenant;
 import com.carlodelledonne.tarbula_10.services.Product;
 import com.github.clans.fab.FloatingActionButton;
@@ -139,7 +140,7 @@ public class BoughtPageFragment extends Fragment{
         tempList.clear();
         for (Product p : MainTabActivity.mListBought) {
             if ((filter == null) ||
-                    (p.getBuyer().getName().equals(filter.getName())))
+                    (p.getBuyer().equals(filter.getName())))
                 tempList.add(p);
         }
 
@@ -184,18 +185,18 @@ public class BoughtPageFragment extends Fragment{
     }
 
     public static void removeProductFromBoughtList(Product p) {
-        // TODO: rewrite this method from scratch after introducing database
+    /*    // TODO: rewrite this method from scratch after introducing database
         MainTabActivity.mListBought.remove(p);
         MainTabActivity.mAdapterBought.notifyDataSetChanged();
         float fraction = p.getPrice()/p.getUsers().size();
         for (Tenant i : p.getUsers()) {
             i.setBalance(i.getBalance() + fraction);
         }
-        p.getBuyer().setBalance(p.getBuyer().getBalance() - p.getPrice());
+        //p.getBuyer().setBalance(p.getBuyer().getBalance() - p.getPrice());
         MainTabActivity.temp = MainTabActivity.mListMates;
         Collections.sort(MainTabActivity.temp);
         MainTabActivity.mAdapterBalance.notifyDataSetChanged();
-        BoughtPageFragment.refreshFilter();
+        BoughtPageFragment.refreshFilter();*/
     }
 
     @Override
@@ -206,6 +207,9 @@ public class BoughtPageFragment extends Fragment{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.refresh:
+                new GetProducts().execute();
+                break;
             case R.id.settings:
                 Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
                 startActivity(settingsIntent);

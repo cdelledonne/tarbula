@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,6 +27,7 @@ import java.util.Collections;
 public class BalancePageFragment extends Fragment{
 
     public static final String ARG_PAGE = "ARG_PAGE";
+    private static final String LOG = "BalanceFragment_log";
 
     static ListView listView;
     static TextView textView;
@@ -43,6 +45,7 @@ public class BalancePageFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LOG, "onCreate");
         mPage = getArguments().getInt(ARG_PAGE);
         setHasOptionsMenu(true);
     }
@@ -50,6 +53,7 @@ public class BalancePageFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(LOG, "onCreateView");
         View view = inflater.inflate(R.layout.tab_balance, container, false);
         listView = (ListView) view.findViewById(R.id.balance_list);
         listView.setAdapter(MainTabActivity.mAdapterBalance);
@@ -76,17 +80,17 @@ public class BalancePageFragment extends Fragment{
     return view;
     }
 
-    public static void refreshBalance(Product p) {
+    /*public static void refreshBalance(Product p) {
         // TODO: rewrite this method from scratch after introducing database
         float fraction = p.getPrice()/p.getUsers().size();
         for (Tenant i : p.getUsers()) {
             i.setBalance(i.getBalance() - fraction);
         }
-        p.getBuyer().setBalance(p.getBuyer().getBalance() + p.getPrice());
+        // p.getBuyer().setBalance(p.getBuyer().getBalance() + p.getPrice());
         MainTabActivity.temp = MainTabActivity.mListMates;
         Collections.sort(MainTabActivity.temp);
         MainTabActivity.mAdapterBalance.notifyDataSetChanged();
-    }
+    }*/
 
     public void openClearBalanceDialog() {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();

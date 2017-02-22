@@ -45,13 +45,13 @@ public class ItemDetailDialog extends DialogFragment {
 
         String buyer = (getString(R.string.buyer, BoughtPageFragment.detail.getBuyer().toString()));
 
-        String usersString = "";
+        /*String usersString = "";
         for (int j=0; j<BoughtPageFragment.detail.getUsers().size(); j++) {
             usersString += BoughtPageFragment.detail.getUsers().get(j).toString();
             if (j<BoughtPageFragment.detail.getUsers().size()-1)
                 usersString += ", ";
-        }
-        String users = (getString(R.string.users, usersString));
+        }*/
+        String users = (getString(R.string.users, BoughtPageFragment.detail.getUsers()));
 
         String detailText = name + "\n\n" + description + "\n\n" + price + "\n\n" + buyer +
                 "\n\n" + users;

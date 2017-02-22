@@ -48,7 +48,7 @@ public class BoughtTabAdapter extends ArrayAdapter<Product> {
                 name.setText(p.getName());
             }
             if (buyer != null){
-                buyer.setText(" " + p.getBuyer().toString());
+                buyer.setText(" " + p.getBuyer());
             }
             if (price != null){
                 price.setText("€ " + p.getPriceString());

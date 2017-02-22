@@ -19,11 +19,14 @@ public class Product implements Serializable{
     // campi
     private String name;
     private String description;
-    private Tenant buyer;
+    //private Tenant buyer;
+    private String buyer;
     private float price;
     private int quantity;
-    private List<Tenant> users;
+    //private List<Tenant> users; // convert to JSON to store in database
+    private String users; // convert to JSON to store in database
     private Date date;
+    private int bought;
 
     /**
      * Private constructor, only inner methods can call it
@@ -36,11 +39,12 @@ public class Product implements Serializable{
      * @param name the name of the Product
      * @return a Product with the specified name
      */
-    public static Product newProdotto(String name) {
+    public static Product newProduct(String name, int bought) {
         Product result = new Product();
         result.name = name;
         result.quantity = 1;
         result.date = new Date();
+        result.bought = bought;
         return result;
     }
 
@@ -79,13 +83,18 @@ public class Product implements Serializable{
      * @param buyer the buyer to be added
      * @return the Product which called this method, with the specified buyer
      */
-    public Product addBuyer(Tenant buyer) {
+    public Product addBuyer(String buyer) {
         this.buyer = buyer;
         return this;
     }
 
-    public Product addUsers(List<Tenant> users) {
+    public Product addUsers(String users) {
         this.users = users;
+        return this;
+    }
+
+    public Product setBought(int bought) {
+        this.bought = bought;
         return this;
     }
 
@@ -125,12 +134,16 @@ public class Product implements Serializable{
      * Method for getting the buyer of a Product
      * @return the buyer of the Product which called this method
      */
-    public Tenant getBuyer() {
+    public String getBuyer() {
         return this.buyer;
     }
 
-    public List<Tenant> getUsers() {
+    public String getUsers() {
         return this.users;
+    }
+
+    public int getBought() {
+        return this.bought;
     }
 
     public Date getDate() {

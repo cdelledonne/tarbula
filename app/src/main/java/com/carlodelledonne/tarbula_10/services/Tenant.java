@@ -15,7 +15,7 @@ public class Tenant implements Serializable, Comparable<Tenant>{
     private Tenant() {
     }
 
-    public static Tenant newInquilino(String name) {
+    public static Tenant newTenant(String name) {
         Tenant result = new Tenant();
         result.name = name;
         result.balance = 0;

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.carlodelledonne.tarbula_10.services.GetProducts;
 import com.carlodelledonne.tarbula_10.services.Product;
 import com.github.clans.fab.FloatingActionButton;
 
@@ -121,6 +122,9 @@ public class TobuyPageFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.refresh:
+                new GetProducts().execute();
+                break;
             case R.id.settings:
                 Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
                 startActivity(settingsIntent);

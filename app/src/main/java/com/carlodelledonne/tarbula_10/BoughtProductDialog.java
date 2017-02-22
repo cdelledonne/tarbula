@@ -82,14 +82,14 @@ public class BoughtProductDialog extends DialogFragment {
             }
         });
         Button buttonConfirm = (Button) v.findViewById(R.id.button_confirm);
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+        /*buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (thereIsName && thereIsPrice && byWhom != null) {
                     if (getParentFragment() instanceof TobuyPageFragment) {
                         removeProductFromTobuyList();
                         addProductToBoughtList(textViewName.getText().toString());
-                    } else /* if (getParentFragment() instanceof BoughtPageFragment) */ {
+                    } else { // if (getParentFragment() instanceof BoughtPageFragment)
                         addProductToBoughtList(editTextName.getText().toString());
                     }
                     dismiss();
@@ -99,7 +99,7 @@ public class BoughtProductDialog extends DialogFragment {
                     toast.show();
                 }
             }
-        });
+        });*/
         Button buttonCancel = (Button) v.findViewById(R.id.button_cancel);
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,10 +148,10 @@ public class BoughtProductDialog extends DialogFragment {
         TobuyPageFragment.checkTextViewVisibility();
     }
 
-    public void addProductToBoughtList(String name) {
+    /*public void addProductToBoughtList(String name) {
         // TODO: update method after introducing database
-        final Product p = Product.newProdotto(name);
-        p.addBuyer(byWhom);
+        final Product p = Product.newProduct(name, 1);
+        p.addBuyer(byWhom.toString());
         if (!TextUtils.isEmpty(editTextDesc.getText()))
             p.addDescription(editTextDesc.getText().toString());
         else p.addDescription(getString(R.string.no_description));
@@ -165,7 +165,7 @@ public class BoughtProductDialog extends DialogFragment {
         MainTabActivity.mAdapterBought.notifyDataSetChanged();
         BalancePageFragment.refreshBalance(p);
         BoughtPageFragment.refreshFilter();
-    }
+    }*/
 
     public void openByWhomDialog() {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();

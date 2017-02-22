@@ -54,7 +54,7 @@
     <string name="sender_equals_addressee_toast">Sender and recipient are the same</string>
     <string name="no_people_selected_toast">Select at least one person</string>
     <string name="empty_name_toast">Insert a name</string>
-    <string name="app_name">SettleApp</string>
+    <string name="app_name">Tarbula</string>
     <string name="credits">Application developed by:\n\nCarlo Delle Donne\nEdoardo Galletti\nFilippo Piva\n\nCopyright © 2015\-2016 Tarbula Inc. All rights reserved.</string>
     <string name="credits_activity">Credits</string>
 </resources>
